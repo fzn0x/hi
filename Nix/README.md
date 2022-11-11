@@ -1,3 +1,50 @@
+## Just works!
+
+- Find package in nix
+
+```sh
+nix-env -qaP cowsay
+```
+
+- Install package in nix
+
+```sh
+nix-env --install cowsay 
+```
+
+```sh
+cowsay "Thanks Nix!"
+```
+
+- npx in Nix
+
+```sh
+$ nix-shell -p cowsay --command "cowsay you nice"
+ __________
+< you nice >
+ ----------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+```
+
+- repl/package> in Nix
+
+```sh
+$ nix-shell -p cowsay
+[nix-shell:/your/hometown/bruh]$ cowsay "you nice"
+ __________
+< you nice >
+ ----------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+```
+
 ## Functions
 
 Function application using let bindings:
@@ -56,3 +103,14 @@ builtins, [docs](https://nixos.org/manual/nix/stable/language/builtins.html)
 
 builtins.[function]
 ```
+
+## Interactive Shell
+
+You can use `nix-shell` to running a interactive shell based on your Nix expression.
+
+```sh
+$ nix-shell lol.nix
+[nix-shell:/your/hometown/bruh]$ lol-cowsay Hello World
+```
+
+
