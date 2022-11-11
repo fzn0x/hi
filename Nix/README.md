@@ -31,3 +31,28 @@ Get a clarity answer with `--strict` parameter:
 ```sh
 nix-instantiate --eval --strict json.nix
 ```
+
+## Built-in Libraries
+
+pkgs, [docs](https://nixos.org/manual/nixpkgs/stable/)
+
+```nix
+{ pkgs ? import <nixpkgs> {} }:
+```
+
+pkgs.lib, [docs](https://nixos.org/manual/nixpkgs/stable/#sec-functions-library)
+
+```nix
+{ pkgs ? import <nixpkgs> {} }:
+
+with pkgs.lib; # bring contents pkgs.lib into scope
+```
+
+builtins, [docs](https://nixos.org/manual/nix/stable/language/builtins.html)
+
+```nix
+# no import required
+# you can call the functions directly with the builtins constant
+
+builtins.[function]
+```
